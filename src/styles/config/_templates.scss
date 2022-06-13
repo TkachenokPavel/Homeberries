@@ -1,0 +1,13 @@
+%vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+%d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

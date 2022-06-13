@@ -1,10 +1,46 @@
-@mixin border-default-radius {
-	border: none;
-	border-radius: 0.75rem;
- }
+@mixin sm {
+    @media (max-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
 
- @mixin flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
- }
+@mixin md {
+    @media (max-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (max-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+@mixin rwd($screen) {
+    @media (max-width: $screen) {
+        @content;
+    }
+}
+
+@mixin abs-position($top, $right, $bottom, $left) {
+    position: absolute;
+    display: block;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin font-options($family, $size, $weight, $height, $color: $text-color) {
+    font-family: $family, sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    color: $color;
+} ;
