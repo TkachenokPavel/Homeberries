@@ -1,6 +1,8 @@
-@use "./config/reset";
-@use "./config";
-@use "./config/container";
-@use "./components/base";
-@use "./components/header";
+@use "./config/reset" as *;
+@use "./config/typography" as *;
+@use "./config/variables" as *;
+@use "./config/mixins" as *;
+@use "./config/templates" as *;
+@use "./base/base" as *;
+@use "./components/header" as *;
 @use "./components/slider";
