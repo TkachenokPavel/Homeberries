@@ -1,57 +1,52 @@
-const prev = document.getElementById('btn-prev');
-const next = document.getElementById('btn-next');
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
+const slides = document.querySelectorAll('.slider__item');
+const dots = document.querySelectorAll('.dots-list__dot');
 
 let index = 0;
 
-const activeSlide = n => {
-	for(slide of slides) {
-		slide.classList.remove('active');
-	}
-	slides[n].classList.add('active');
-}
+const activeSlide = i => {
+    for (let slide of slides) {
+        slide.classList.remove('slide-active');
+    }
+    slides[i].classList.add('slide-active');
+};
 
-const activeDot = n => {
-	for(dot of dots) {
-		dot.classList.remove('active');
-	}
-	dots[n].classList.add('active');
-}
+const activeDot = i => {
+    for (let dot of dots) {
+        dot.classList.remove('dot-active');
+    }
+    dots[i].classList.add('dot-active');
+};
 
-const prepareCurrentSlide = ind => {
-		activeSlide(ind);
-		activeDot(ind);
-}
+const prepareCurrentSlide = index => {
+    activeSlide(index);
+    activeDot(index);
+};
 
 const nextSlide = () => {
-	if(index == slides.length -1) {
-		index = 0;
-		prepareCurrentSlide(index);
-	} else {
-		index ++;
-		prepareCurrentSlide(index);
-	}
-}
+    if (index === slides.length - 1) {
+        index = 0;
+        prepareCurrentSlide(index);
+    } else {
+        index++;
+        prepareCurrentSlide(index);
+    }
+};
 
 const prevSlide = () => {
-	if(index == 0) {
-		index = slides.length -1;
-		prepareCurrentSlide(index);
-	} else {
-		index --;
-		prepareCurrentSlide(index);
-	}
-}
+    if (index === 0) {
+        index = slides.length - 1;
+        prepareCurrentSlide(index);
+    } else {
+        index--;
+        prepareCurrentSlide(index);
+    }
+};
 
 dots.forEach((item, indexDot) => {
-	item.addEventListener('click', () => {
-		index = indexDot;
-		prepareCurrentSlide(index);
-	})
-})
+    item.addEventListener('click', () => {
+        index = indexDot;
+        prepareCurrentSlide(index);
+    });
+});
 
-next.addEventListener('click', nextSlide);
-prev.addEventListener('click', prevSlide);
-
-setInterval(nextSlide, 3000);
+export { nextSlide, prevSlide };
