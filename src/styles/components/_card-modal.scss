@@ -1,0 +1,56 @@
+@use "./config/variables" as *;
+@use "./config/mixins" as *;
+@use "./config/templates" as *;
+
+.modal-card {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 20;
+
+    @extend %d-flex;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    &__content {
+        position: relative;
+
+        max-width: 80vw;
+
+        line-height: 0;
+        border: 3px solid $light-grey;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    &__btn-close {
+        position: absolute;
+        top: 2%;
+        right: 2%;
+
+        background: transparent;
+        border: none;
+
+        cursor: pointer;
+    }
+
+    &__btn-close-icon {
+        width: 35px;
+        height: 35px;
+
+        @include sm {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    &__image {
+        width: 100%;
+    }
+}
+
+.modal__display-none {
+    display: none;
+}
