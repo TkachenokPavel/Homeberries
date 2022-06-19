@@ -3,167 +3,181 @@
 @use "./config/templates" as *;
 
 .product {
-    margin-top: 30px;
-    &__container {
-        padding: 35px;
+	margin-top: 30px;
 
-        border-radius: 40px 40px 0 0;
-        background: linear-gradient(90deg, rgba(89, 88, 88, 1) 0%, rgba(17, 16, 16, 1) 100%);
+	&__container {
+		padding: 35px;
 
-        @include md {
-            padding: 20px;
-        }
-    }
+		border-radius: 40px 40px 0 0;
+		background: linear-gradient(90deg, rgba(89, 88, 88, 1) 0%, rgba(17, 16, 16, 1) 100%);
 
-    &__title {
-        margin-bottom: 25px;
-        margin-left: 10px;
+		@include md {
+			padding: 20px;
+		}
+	}
 
-        @include text-decoration("Roboto", 30px, 700, 40px);
-    }
+	&__title {
+		margin-bottom: 25px;
+		margin-left: 10px;
 
-    &__list {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        row-gap: 40px;
-        column-gap: 25px;
-    }
+		@include text-decoration("Roboto", 30px, 700, 40px);
+	}
 
-    &__card {
-        position: relative;
+	&__list {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		row-gap: 40px;
+		column-gap: 25px;
+	}
 
-        @extend %d-flex;
-        flex-direction: column;
+	&__card {
+		position: relative;
 
-        width: 320px;
+		@extend %d-flex;
+		flex-direction: column;
 
-        border-radius: 15px;
-        background-color: $light-grey;
-        overflow: hidden;
+		width: 320px;
 
-        @include lg {
-            width: 300px;
-        }
-    }
+		border-radius: 15px;
+		background-color: $light-grey;
+		overflow: hidden;
+
+		@include lg {
+			width: 300px;
+		}
+	}
 }
 
 .card {
-    &__link {
-        position: relative;
+	&__link {
+		position: relative;
 
-        width: 100%;
-        height: 427px;
-        margin-bottom: 15px;
-        @include lg {
-            height: 400px;
-        }
-        @include md {
-            height: 350px;
-        }
-    }
-    &__image {
-        width: 100%;
-        height: 427px;
+		width: 100%;
+		height: 427px;
+		margin-bottom: 15px;
 
-        object-fit: cover;
+		@include lg {
+			height: 400px;
+		}
 
-        @include lg {
-            height: 400px;
-        }
-        @include md {
-            height: 350px;
-        }
-    }
+		@include md {
+			height: 350px;
+		}
+	}
 
-    &__image-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 2;
+	&__image {
+		width: 100%;
+		height: 427px;
 
-        text-align: center;
-        @include text-decoration("Roboto", 28px, 400, 427px);
+		object-fit: cover;
 
-        opacity: 0;
-        &:hover {
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 1;
-        }
-    }
+		@include lg {
+			height: 400px;
+		}
 
-    &__discount {
-        position: absolute;
-        top: 76%;
-        left: 5%;
+		@include md {
+			height: 350px;
+		}
+	}
 
-        @include text-decoration("Roboto", 24px, 700, 21px);
+	&__image-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
 
-        @include lg {
-            top: 73%;
-        }
-        @include md {
-            top: 70%;
-        }
-    }
+		text-align: center;
+		@include text-decoration("Roboto", 28px, 400, 427px);
 
-    &__price {
-        &-new {
-            align-self: start;
-            margin-left: 20px;
+		opacity: 0;
 
-            @include text-decoration("Roboto", 24px, 400, 25px, $second-color);
-        }
+		&:hover {
+			background: rgba(0, 0, 0, 0.5);
+			opacity: 1;
+		}
+	}
 
-        &-old {
-            align-self: start;
-            margin-left: 20px;
+	&__discount {
+		position: absolute;
+		top: 76%;
+		left: 5%;
+		padding: 0.1rem;
+		border-radius: 5px;
+		background-color: rgba(255, 215, 4, 0.8);
 
-            @include text-decoration("Roboto", 16px, 400, 25px);
-        }
-    }
+		@include text-decoration("Roboto", 24px, 700, 21px);
 
-    &__name {
-        align-self: start;
+		@include lg {
+			top: 73%;
+		}
 
-        margin: 0 0 10px 15px;
+		@include md {
+			top: 70%;
+		}
+	}
 
-        @include text-decoration("Montserrat", 21px, 400, 25px);
-        @include md {
-            font-size: 18px;
-        }
-    }
+	&__price {
+		&-new {
+			align-self: start;
+			margin-left: 20px;
 
-    &__button {
-        position: absolute;
-        top: 70%;
-        right: 5%;
-        z-index: 3;
+			@include text-decoration("Roboto", 24px, 400, 25px, $second-color);
+		}
 
-        width: 50px;
-        height: 50px;
+		&-old {
+			align-self: start;
+			margin-left: 20px;
+			text-decoration: line-through;
 
-        border: none;
-        border-radius: 50%;
-        background-image: url(../assets/icons/cart.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: $light-grey;
+			@include text-decoration("Roboto", 16px, 400, 25px);
+		}
+	}
 
-        opacity: 0.5;
-        cursor: pointer;
+	&__name {
+		align-self: start;
 
-        &:hover {
-            opacity: 1;
-        }
+		margin: 0 0 10px 15px;
 
-        @include lg {
-            top: 68%;
-        }
-        @include md {
-            top: 65%;
-        }
-    }
+		@include text-decoration("Montserrat", 21px, 400, 25px);
+
+		@include md {
+			font-size: 18px;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		top: 70%;
+		right: 5%;
+		z-index: 3;
+
+		width: 50px;
+		height: 50px;
+
+		border: none;
+		border-radius: 50%;
+		background-image: url(../assets/icons/cart.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: $light-grey;
+
+		opacity: 0.5;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 1;
+			background-color: $second-color;
+		}
+
+		@include lg {
+			top: 68%;
+		}
+
+		@include md {
+			top: 65%;
+		}
+	}
 }
