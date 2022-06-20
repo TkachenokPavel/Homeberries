@@ -1,10 +1,12 @@
 import { initSlider } from './components/Slider.js';
-import { renderProducts } from './render/renderProducts.js';
-import { getProductData } from './services/mockApi.js';
+import { getProducts } from './services/mockApi.js';
+import { renderProducts } from './utils/renderProducts.js';
 
 const init = () => {
 	renderProducts();
 	initSlider();
+	renderProducts(getProducts);
+
 };
 
 document.addEventListener('DOMContentLoaded', init);
