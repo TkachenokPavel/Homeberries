@@ -5,7 +5,8 @@ function createElement(tag, className, text = "") {
 	return element;
 }
 
-const calculateDicsount = (price, discount) => {
-	return Math.floor((price / 100) * (100 - discount))
-}
-export { createElement, calculateDicsount };
+const calculateDiscount = (price, discount) => {
+	return Math.floor((price / 100) * (100 - discount));
+};
+
+export { createElement, calculateDiscount };
