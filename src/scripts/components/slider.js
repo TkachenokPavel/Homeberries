@@ -49,4 +49,11 @@ dots.forEach((item, indexDot) => {
     });
 });
 
-export { nextSlide, prevSlide };
+const initSlider = () => {
+    document.getElementById('btn-prev').addEventListener('click', prevSlide);
+    document.getElementById('btn-next').addEventListener('click', nextSlide);
+
+    setInterval(nextSlide, 4000);
+};
+
+export { initSlider };
