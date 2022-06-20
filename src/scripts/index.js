@@ -1,5 +1,6 @@
 import { initSlider } from './components/Slider.js';
 import { renderProducts } from './render/renderProducts.js';
+import { getProductData } from './services/mockApi.js';
 
 const init = () => {
 	renderProducts();
@@ -7,4 +8,3 @@ const init = () => {
 };
 
 document.addEventListener('DOMContentLoaded', init);
-
