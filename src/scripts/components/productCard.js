@@ -1,6 +1,7 @@
 import { createElement, calculateDiscount } from "../utils/helpers.js";
 
-const createProductCard = (id, name, category, price, photo, discount) => {
+const createProductCard = (product) => {
+	const { id, discount, name, category, photo, price } = product;
 	const productCard = createElement("li", "product__card");
 	const cardImage = createElement("a", "card__link");
 	cardImage.setAttribute("herf", "#");
