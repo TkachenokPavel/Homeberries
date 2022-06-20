@@ -3,11 +3,17 @@ import { getProducts } from "../services/mockApi.js";
 
 const renderProducts = () => {
 	const productList = document.querySelector('.product__list');
-	.forEach(product => {
-		const productCard = createProductCard(product)
-		productList.append(productCard);
-		console.log('123')
-	})
+	const products = getProducts()
+
+	setTimeout(render, 500)
+	function render() {
+		products.forEach(productItem => {
+			const product = createProductCard(productItem)
+			productList.append(product)
+
+		})
+	}
+
 
 
 }
