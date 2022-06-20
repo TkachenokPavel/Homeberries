@@ -1,4 +1,4 @@
-import { createProductCard } from "../components/createProductCard.js";
+import { createProductCard } from "../components/productCard.js";
 
 const renderProducts = () => {
 	const productList = document.querySelector('.product__list');

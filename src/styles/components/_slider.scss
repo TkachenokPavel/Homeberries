@@ -30,7 +30,7 @@
 
         line-height: 0;
 
-        &.slide-active {
+        &.slider__item--active {
             display: block;
         }
     }
@@ -102,7 +102,7 @@
         }
     }
 
-    &__dots-list {
+    &__dots {
         display: flex;
 
         height: 20px;
@@ -116,9 +116,7 @@
             margin-top: 10px;
         }
     }
-}
 
-.dots-list {
     &__dot {
         width: 20px;
         height: 20px;
@@ -138,7 +136,7 @@
             height: 12px;
         }
 
-        &.dot-active {
+        &.slider__dot--active {
             background-color: $second-color;
         }
 

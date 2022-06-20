@@ -27,7 +27,7 @@
 			<section class="slider">
 				<div class="slider__container container">
 					<ul class="slider__list">
-						<li class="slider__item slide-active">
+						<li class="slider__item slider__item--active">
 							<img src="./assets/slider/cleaning.jpeg" class="slider__image" alt="promotion cleaning" />
 						</li>
 						<li class="slider__item">
@@ -49,13 +49,13 @@
 					</ul>
 					<button type="button" class="slider__button-previous" id="btn-prev"></button>
 					<button type="button" class="slider__button-next" id="btn-next"></button>
-					<ul class="slider__dots-list">
-						<li class="dots-list__dot dot-active"></li>
-						<li class="dots-list__dot"></li>
-						<li class="dots-list__dot"></li>
-						<li class="dots-list__dot"></li>
-						<li class="dots-list__dot"></li>
-						<li class="dots-list__dot"></li>
+					<ul class="slider__dots">
+						<li class="slider__dot slider__dot--active"></li>
+						<li class="slider__dot"></li>
+						<li class="slider__dot"></li>
+						<li class="slider__dot"></li>
+						<li class="slider__dot"></li>
+						<li class="slider__dot"></li>
 					</ul>
 				</div>
 			</section>
@@ -69,16 +69,16 @@
 		</main>
 	</div>
 
-	<div id="card-modal" class="modal-card modal__display-none">
-		<div class="modal-card__content">
-			<button type="button" class="modal-card__btn-close"><img src="./assets/icons/close.svg"
-					class="modal-card__btn-close-icon" alt="close button"></button>
-			<img src="https://images.wbstatic.net/c516x688/new/68980000/68988778-1.jpg" class="modal-card__image"
+	<div id="product-modal" class="modal-product modal__open">
+		<div class="modal-product__content">
+			<button type="button" class="modal-product__btn-close"><img src="./assets/icons/close.svg"
+					class="modal-product__btn-close-icon" alt="close button"></button>
+			<img src="https://images.wbstatic.net/c516x688/new/68980000/68988778-1.jpg" class="modal-product__image"
 				alt="product photo">
 		</div>
 	</div>
 
-	<div id="cart-modal" class="modal-cart modal__display-none">
+	<div id="cart-modal" class="modal-cart modal__open">
 		<div class="modal-cart__content">
 			<h2 class="modal-cart__title">Корзина</h2>
 			<ul class="modal-cart__list">
@@ -265,15 +265,23 @@
 			</ul>
 			<div class="modal-cart__order">
 				<h2 class="order__title">Заказ</h2>
-				<p class="order__total"><span class="total__text">Общая стоимость:</span> <span class="total__value">200
-						р</span></p>
-				<p class="order__discount"><span class="discount__text">Скидка:</span><span class="discount__value">70
-						р</span></p>
-				<p class="order__sum"><span class="sum__text">Итог:</span><span class="sum__value">13 р</span> </p>
+				<p class="order__total">
+					<span class="total__text">Общая стоимость:</span>
+					<span class="total__value">200 р</span>
+				</p>
+				<p class="order__discount">
+					<span class="discount__text">Скидка:</span>
+					<span class="discount__value">70р</span>
+				</p>
+				<p class="order__sum">
+					<span class="sum__text">Итог:</span>
+					<span class="sum__value">13 р</span>
+				</p>
 				<button type="button" class="order__button">Оформить заказ</button>
 			</div>
-			<button type="button" class="modal-cart__btn-close"><img src="./assets/icons/close.svg"
-					class="modal-cart__btn-close-icon" alt="close button"></button>
+			<button type="button" class="modal-cart__btn-close">
+				<img src="./assets/icons/close.svg" class="modal-cart__btn-close-icon" alt="close button">
+			</button>
 		</div>
 	</div>
 

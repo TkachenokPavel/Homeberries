@@ -2,7 +2,7 @@
 @use "./config/mixins" as *;
 @use "./config/templates" as *;
 
-.modal-card {
+.modal-product {
     position: fixed;
     top: 0;
     right: 0;
@@ -51,6 +51,6 @@
     }
 }
 
-.modal__display-none {
+.modal__open {
     display: none;
 }
