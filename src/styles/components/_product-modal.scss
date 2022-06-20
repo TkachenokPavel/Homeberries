@@ -3,6 +3,8 @@
 @use "./config/templates" as *;
 
 .modal-product {
+    display: none;
+
     position: fixed;
     top: 0;
     right: 0;
@@ -52,5 +54,5 @@
 }
 
 .modal__open {
-    display: none;
+    display: flex;
 }
