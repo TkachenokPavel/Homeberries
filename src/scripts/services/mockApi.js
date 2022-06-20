@@ -11,16 +11,13 @@ const getProducts = () => {
 				}
 			})
 			.then(products => products.forEach(product => {
-				productsData.push(product)
+				return productsData.push(product)
 			}));
 		resolve();
 	})
 		.catch(error => {
 			console.log('Error', error);
 		});
-
-
-
 	return productsData;
 }
 
