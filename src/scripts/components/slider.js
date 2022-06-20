@@ -1,20 +1,20 @@
 const slides = document.querySelectorAll('.slider__item');
-const dots = document.querySelectorAll('.dots-list__dot');
+const dots = document.querySelectorAll('.slider__dot');
 
 let index = 0;
 
 const activeSlide = i => {
     for (let slide of slides) {
-        slide.classList.remove('slide-active');
+        slide.classList.remove('slider__item--active');
     }
-    slides[i].classList.add('slide-active');
+    slides[i].classList.add('slider__item--active');
 };
 
 const activeDot = i => {
     for (let dot of dots) {
-        dot.classList.remove('dot-active');
+        dot.classList.remove('slider__dot--active');
     }
-    dots[i].classList.add('dot-active');
+    dots[i].classList.add('slider__dot--active');
 };
 
 const prepareCurrentSlide = index => {
@@ -49,4 +49,11 @@ dots.forEach((item, indexDot) => {
     });
 });
 
-export { nextSlide, prevSlide };
+const initSlider = () => {
+    document.getElementById('btn-prev').addEventListener('click', prevSlide);
+    document.getElementById('btn-next').addEventListener('click', nextSlide);
+
+    setInterval(nextSlide, 4000);
+};
+
+export { initSlider };
