@@ -1,5 +1,6 @@
 import { createElement, calculateDiscount } from "../utils/helpers.js";
 import { getProducts } from "../services/mockApi.js";
+import { storageKeys, getStorageData, setStorageData } from "../services/localStorageApi.js";
 
 const createProductCard = (product) => {
 	const { id, discount, name, category, photo, price } = product;
@@ -12,6 +13,7 @@ const createProductCard = (product) => {
 	image.setAttribute("alt", "product photo");
 
 	const enlargeImage = createElement("span", "card__image-background", "Увеличить");
+	enlargeImage.dataset.modal = 'card';
 	cardImage.append(image, enlargeImage);
 
 	const cardDiscount = createElement("span", "card__discount", `${"-" + discount + " %"}`);
@@ -19,12 +21,35 @@ const createProductCard = (product) => {
 	const cardStandartPrice = createElement("span", "card__price-old", `${price + " pуб"}`);
 	const cardProductName = createElement("span", "card__name", `${category + " " + name}`);
 	const addToCartButton = createElement("button", "card__button");
+	addToCartButton.id = 'btn-add-cart';
 	addToCartButton.setAttribute("type", "button");
 
 	productCard.append(cardImage, cardDiscount, cardNewPrice, cardStandartPrice, cardProductName, addToCartButton);
 	productCard.id = id;
 
 	return productCard;
+};
+
+const onCardClick = ({ target, currentTarget }) => {
+	if (target.id === 'btn-add-cart') {
+		const cartData = getStorageData(storageKeys.CART);
+
+		new Promise((resolve, reject) => {
+			resolve(getProducts());
+		})
+			.then(products => {
+				if (!cartData.find(item => item.id === currentTarget.id)) {
+					const currentCardData = products.find(item => item.id === currentTarget.id);
+					return currentCardData;
+				}
+			})
+			.then(product => {
+				if (product) {
+					cartData.push(product)
+				};
+			})
+			.then(setStorage => setStorageData(storageKeys.CART, cartData));
+	}
 };
 
 const renderProducts = () => {
@@ -34,7 +59,10 @@ const renderProducts = () => {
 		resolve(getProducts());
 	})
 		.then(products => products.forEach(item => {
-			productList.append(createProductCard(item));
+			const newCard = createProductCard(item);
+
+			newCard.addEventListener('click', onCardClick);
+			productList.append(newCard);
 		}));
 };
 
