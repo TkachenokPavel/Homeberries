@@ -292,8 +292,13 @@
     }
 
     &__discount {
+        padding: 5px;
+
         font-size: 24px;
+
         color: $second-color;
+        background: rgb(119, 118, 118);
+        border-radius: 7px;
 
         @include sm {
             font-size: 16px;

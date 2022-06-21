@@ -1,5 +1,4 @@
 import { createElement, calculateDiscount } from "../utils/helpers.js";
-import { getProducts } from "../services/mockApi.js";
 import { storageKeys, getStorageData, setStorageData } from "../services/localStorageApi.js";
 
 const createCartItem = (product) => {
@@ -8,7 +7,7 @@ const createCartItem = (product) => {
     productCard.id = id;
 
     const productDetails = createElement('div', 'item-goods__details');
-    const productName = createElement('h3', 'item-goods__name', `${name} // ${category}`);
+    const productName = createElement('h3', 'item-goods__name', `${name}`);
     const productPrice = createElement('p', 'item-goods__price', `${price}`);
 
     productDetails.append(productName, productPrice);
@@ -42,3 +41,59 @@ const createCartItem = (product) => {
 
     return productCard;
 };
+
+const calcTotal = (cartProductsData) => {
+    let total = 0;
+
+    cartProductsData.forEach(item => total += +item.price);
+
+    return total;
+};
+
+const calcDiscount = (cartProductsData) => {
+    let discount = 0;
+
+    cartProductsData.forEach(item => {
+        discount += (+item.price - calculateDiscount(+item.price, +item.discount));
+    });
+
+    return discount;
+};
+
+const renderCartDetails = (cartProductsData) => {
+    const valueTotal = document.getElementById('value-total');
+    const valueDiscount = document.getElementById('value-discount');
+    const valueSum = document.getElementById('value-sum');
+    const submitButton = document.getElementById('btn-submit-order');
+
+    valueTotal.textContent = `${calcTotal(cartProductsData)}`;
+
+    valueDiscount.textContent = `${calcDiscount(cartProductsData)}`;
+
+    valueSum.textContent = `${calcTotal(cartProductsData) - calcDiscount(cartProductsData)}`;
+
+    if (cartProductsData.length === 0) {
+        submitButton.disabled = true;
+    }
+};
+
+const initCart = () => {
+    const cartList = document.getElementById('cart-list');
+    const cartData = getStorageData(storageKeys.CART);
+
+    while (cartList.firstElementChild) {
+        cartList.firstElementChild.remove();
+    }
+
+    document.getElementById('btn-close-modal').addEventListener('click', function () {
+        document.getElementById('cart-modal').classList.remove('modal__open');
+    });
+
+    cartData.forEach(item => {
+        cartList.append(createCartItem(item));
+    });
+
+    renderCartDetails(cartData);
+};
+
+export { initCart };
