@@ -18,7 +18,9 @@ const createCartItem = (product) => {
     const productIncrement = createElement('button', 'item-goods__increase', `+`);
 
     productDecriment.setAttribute("type", "button");
+    productDecriment.setAttribute("data-btn", "decrement");
     productIncrement.setAttribute("type", "button");
+    productIncrement.setAttribute("data-btn", "increment");
 
     productAmount.append(productDecriment, productQuantity, productIncrement);
 
@@ -28,16 +30,7 @@ const createCartItem = (product) => {
 
     productCost.append(productTotal, productDiscount);
 
-    const productButtonDelete = createElement('button', 'item-goods__delete');
-    const productButtonImage = createElement('img', 'item-goods__delete-icon');
-
-    productButtonDelete.setAttribute('type', 'button');
-    productButtonImage.setAttribute('src', './assets/icons/close.svg');
-    productButtonImage.setAttribute('alt', 'close button');
-
-    productButtonDelete.append(productButtonImage);
-
-    productCard.append(productDetails, productAmount, productCost, productButtonDelete);
+    productCard.append(productDetails, productAmount, productCost);
 
     return productCard;
 };
@@ -45,7 +38,7 @@ const createCartItem = (product) => {
 const calcTotal = (cartProductsData) => {
     let total = 0;
 
-    cartProductsData.forEach(item => total += +item.price);
+    cartProductsData.forEach(item => total += (+item.price * +item.amount));
 
     return total;
 };
@@ -54,10 +47,40 @@ const calcDiscount = (cartProductsData) => {
     let discount = 0;
 
     cartProductsData.forEach(item => {
-        discount += (+item.price - calculateDiscount(+item.price, +item.discount));
+        discount += (+item.price - calculateDiscount(+item.price, +item.discount)) * +item.amount;
     });
 
     return discount;
+};
+
+const onCartItemClick = ({ target, currentTarget }) => {
+    if (target.dataset.btn === 'decrement') {
+        const cartData = getStorageData(storageKeys.CART);
+
+        cartData.forEach(item => {
+            if (item.id === currentTarget.id) {
+                item.amount--;
+            }
+        });
+
+        const newCartData = cartData.filter(item => item.amount > 0);
+
+        renderCardItems(newCartData);
+        renderCartDetails(newCartData);
+        setStorageData(storageKeys.CART, newCartData);
+    } else if (target.dataset.btn === 'increment') {
+        const cartData = getStorageData(storageKeys.CART);
+
+        cartData.forEach(item => {
+            if (item.id === currentTarget.id) {
+                item.amount++;
+            }
+        });
+
+        renderCardItems(cartData);
+        renderCartDetails(cartData);
+        setStorageData(storageKeys.CART, cartData);
+    }
 };
 
 const renderCartDetails = (cartProductsData) => {
@@ -71,28 +94,40 @@ const renderCartDetails = (cartProductsData) => {
     valueDiscount.textContent = `${calcDiscount(cartProductsData)}`;
 
     valueSum.textContent = `${calcTotal(cartProductsData) - calcDiscount(cartProductsData)}`;
-
-    if (cartProductsData.length === 0) {
-        submitButton.disabled = true;
-    }
 };
 
-const initCart = () => {
+const renderCardItems = (cartProductsData) => {
     const cartList = document.getElementById('cart-list');
-    const cartData = getStorageData(storageKeys.CART);
 
     while (cartList.firstElementChild) {
         cartList.firstElementChild.remove();
     }
 
+    cartProductsData.forEach(item => {
+        const newCartItem = createCartItem(item);
+
+        newCartItem.addEventListener('click', onCartItemClick);
+        cartList.append(newCartItem);
+    });
+};
+
+const initCart = () => {
+    const cartData = getStorageData(storageKeys.CART);
+
     document.getElementById('btn-close-modal').addEventListener('click', function () {
         document.getElementById('cart-modal').classList.remove('modal__open');
     });
 
-    cartData.forEach(item => {
-        cartList.append(createCartItem(item));
+    document.getElementById('btn-submit-order').addEventListener('click', function () {
+        const cartData = getStorageData(storageKeys.CART);
+
+        document.getElementById('cart-modal').classList.remove('modal__open');
+        cartData.length = 0;
+
+        setStorageData(storageKeys.CART, cartData);
     });
 
+    renderCardItems(cartData);
     renderCartDetails(cartData);
 };
 

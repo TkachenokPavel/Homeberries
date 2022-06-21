@@ -1,6 +1,3 @@
-import { createElement, calculateDiscount } from "../utils/helpers.js";
-import { getProducts } from "../services/mockApi.js";
-import { storageKeys, getStorageData, setStorageData } from "../services/localStorageApi.js";
 import { initCart } from "./cart.js";
 
 const onHeaderClick = ({ target, currentTarget }) => {
