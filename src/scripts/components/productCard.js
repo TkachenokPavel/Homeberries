@@ -1,4 +1,5 @@
 import { createElement, calculateDiscount } from "../utils/helpers.js";
+import { getProducts } from "../services/mockApi.js";
 
 const createProductCard = (product) => {
 	const { id, discount, name, category, photo, price } = product;
@@ -26,4 +27,15 @@ const createProductCard = (product) => {
 	return productCard;
 };
 
-export { createProductCard };
+const renderProducts = () => {
+	const productList = document.querySelector('.product__list');
+
+	new Promise((resolve, reject) => {
+		resolve(getProducts());
+	})
+		.then(products => products.forEach(item => {
+			productList.append(createProductCard(item));
+		}));
+};
+
+export { createProductCard, renderProducts };
