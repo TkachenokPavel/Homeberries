@@ -20,7 +20,7 @@
 			<div class="header__container container">
 				<img src="./assets/icons/homeberries.svg" class="header__logo" alt="logo" />
 				<input type="text" class="header__search" placeholder="Я ищу..." />
-				<img src="./assets/icons/cart.svg" class="header__cart" alt="cart icon" />
+				<img id="header-cart" src="./assets/icons/cart.svg" class="header__cart" alt="cart icon" />
 			</div>
 		</header>
 		<main class="main">
@@ -71,8 +71,9 @@
 
 	<div id="product-modal" class="modal-product">
 		<div class="modal-product__content">
-			<button type="button" class="modal-product__btn-close"><img src="./assets/icons/close.svg"
-					class="modal-product__btn-close-icon" alt="close button"></button>
+			<button type="button" class="modal-product__btn-close">
+				<img src="./assets/icons/close.svg" class="modal-product__btn-close-icon" alt="close button">
+			</button>
 			<img src="https://images.wbstatic.net/c516x688/new/68980000/68988778-1.jpg" class="modal-product__image"
 				alt="product photo">
 		</div>
@@ -81,205 +82,26 @@
 	<div id="cart-modal" class="modal-cart">
 		<div class="modal-cart__content">
 			<h2 class="modal-cart__title">Корзина</h2>
-			<ul class="modal-cart__list">
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
-				<li class="modal-cart__item-goods">
-					<div class="item-goods__details">
-						<h3 class="item-goods__name">Брюки</h3>
-						<p class="item-goods__price">100 р</p>
-					</div>
-					<div class="item-goods__amount">
-						<button type="button" class="item-goods__decrease">-</button>
-						<span class="item-goods__quantity">1</span>
-						<button type="button" class="item-goods__increase">+</button>
-					</div>
-					<div class="item-goods__cost">
-						<span class="cost__total">100 р</span>
-						<span class="cost__discount">90 р</span>
-					</div>
-				</li>
+			<ul id="cart-list" class="modal-cart__list">
 			</ul>
 			<div class="modal-cart__order">
 				<h2 class="order__title">Заказ</h2>
 				<p class="order__total">
 					<span class="total__text">Общая стоимость:</span>
-					<span class="total__value">200 р</span>
+					<span class="total__value" id="value-total"></span>
 				</p>
 				<p class="order__discount">
 					<span class="discount__text">Скидка:</span>
-					<span class="discount__value">70р</span>
+					<span class="discount__value" id="value-discount"></span>
 				</p>
 				<p class="order__sum">
 					<span class="sum__text">Итог:</span>
-					<span class="sum__value">13 р</span>
+					<span class="sum__value" id="value-sum"></span>
 				</p>
-				<button type="button" class="order__button">Оформить заказ</button>
+				<button id="btn-submit-order" type="button" class="order__button">Оформить
+					заказ</button>
 			</div>
-			<button type="button" class="modal-cart__btn-close">
+			<button id="btn-close-modal" type="button" class="modal-cart__btn-close">
 				<img src="./assets/icons/close.svg" class="modal-cart__btn-close-icon" alt="close button">
 			</button>
 		</div>

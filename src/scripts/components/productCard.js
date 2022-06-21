@@ -45,8 +45,9 @@ const onCardClick = ({ target, currentTarget }) => {
 			})
 			.then(product => {
 				if (product) {
-					cartData.push(product)
-				};
+					product.amount = 1;
+					cartData.push(product);
+				}
 			})
 			.then(setStorage => setStorageData(storageKeys.CART, cartData));
 	}
