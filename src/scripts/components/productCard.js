@@ -6,6 +6,7 @@ const createProductCard = (product) => {
 	const { id, discount, name, category, photo, price } = product;
 	const productCard = createElement("li", "product__card");
 	const cardImage = createElement("a", "card__link");
+	cardImage.id = "img-" + id;
 	cardImage.setAttribute("herf", "#");
 
 	const image = createElement("img", "card__image");
@@ -13,6 +14,7 @@ const createProductCard = (product) => {
 	image.setAttribute("alt", "product photo");
 
 	const enlargeImage = createElement("span", "card__image-background", "Увеличить");
+	enlargeImage.id = "img-b-" + id;
 	enlargeImage.dataset.modal = 'card';
 	cardImage.append(image, enlargeImage);
 
@@ -50,7 +52,21 @@ const onCardClick = ({ target, currentTarget }) => {
 				}
 			})
 			.then(setStorage => setStorageData(storageKeys.CART, cartData));
+	};
+
+	if (target.id === `${"img-b-" + currentTarget.id}`) {
+		const modalProduct = document.querySelector(".modal-product")
+		modalProduct.classList.add("modal__open")
+		new Promise((resolve, reject) => {
+			resolve(getProducts());
+		})
+			.then(products => {
+				const cardPhoto = products.find(item => item.id === currentTarget.id).photo
+				const modalImage = document.querySelector(".modal-product__image")
+				modalImage.src = cardPhoto
+			})
 	}
+
 };
 
 const renderProducts = () => {
