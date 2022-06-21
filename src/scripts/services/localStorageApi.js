@@ -1,4 +1,5 @@
 const storageKeys = {
+    CART: 'cart',
 };
 
 function getStorageData(key) {
