@@ -52,25 +52,29 @@ const onCardClick = ({ target, currentTarget }) => {
 				}
 			})
 			.then(setStorage => setStorageData(storageKeys.CART, cartData));
-	};
+	}
 
 	if (target.id === `${"img-b-" + currentTarget.id}`) {
-		const modalProduct = document.querySelector(".modal-product")
-		modalProduct.classList.add("modal__open")
+		const modalProduct = document.querySelector(".modal-product");
+		modalProduct.classList.add("modal__open");
 		new Promise((resolve, reject) => {
 			resolve(getProducts());
 		})
 			.then(products => {
-				const cardPhoto = products.find(item => item.id === currentTarget.id).photo
-				const modalImage = document.querySelector(".modal-product__image")
-				modalImage.src = cardPhoto
-			})
+				const cardPhoto = products.find(item => item.id === currentTarget.id).photo;
+				const modalImage = document.querySelector(".modal-product__image");
+				modalImage.src = cardPhoto;
+			});
 	}
 
 };
 
 const renderProducts = () => {
 	const productList = document.querySelector('.product__list');
+
+	while (productList.firstElementChild) {
+		productList.firstElementChild.remove();
+	}
 
 	new Promise((resolve, reject) => {
 		resolve(getProducts());
