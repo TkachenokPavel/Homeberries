@@ -27,11 +27,6 @@ install parcel
 npm install -g parcel-bundler
 ```
 
-install sass
-```bash
-npm install -g sass
-```
-
 ## Run project
 
 ```bash
