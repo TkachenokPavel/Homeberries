@@ -2,7 +2,7 @@ import { createElement, calculateDiscount } from "../utils/helpers.js";
 import { storageKeys, getStorageData, setStorageData } from "../services/localStorageApi.js";
 
 const createCartItem = (product) => {
-    const { id, discount, name, category, photo, price, amount } = product;
+    const { id, discount, name, price, amount } = product;
     const productCard = createElement("li", "modal-cart__item-goods");
     productCard.id = id;
 
