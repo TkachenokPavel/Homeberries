@@ -25,8 +25,8 @@ const createCartItem = (product) => {
     productAmount.append(productDecriment, productQuantity, productIncrement);
 
     const productCost = createElement('div', 'item-goods__cost');
-    const productTotal = createElement('span', 'cost__total', `${price}`);
-    const productDiscount = createElement('span', 'cost__discount', `${calculateDiscount(price, discount)}`);
+    const productTotal = createElement('span', 'cost__total', `${price * amount}`);
+    const productDiscount = createElement('span', 'cost__discount', `${calculateDiscount(price, discount) * amount}`);
 
     productCost.append(productTotal, productDiscount);
 
