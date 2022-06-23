@@ -10,9 +10,9 @@ This project contains the basic logic of the main page and the shopping cart of 
 ## Built With
 * HTML
 * CSS
+* SCSS
 * JAVASCRIPT
 * Parcel
-* SCSS
 
 ## Installation
 
