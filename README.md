@@ -1,9 +1,9 @@
 # ABOUT PROJECT
 This project contains the basic logic of the main page and the shopping cart of the online store.
 
-## Preview
-
 * [Watch website](https://tkachenokpavel.github.io/Homeberries/)
+
+## Preview
 
 ![Image](https://i.postimg.cc/sfqmqv2H/2022-06-22-221036742.png)
 
