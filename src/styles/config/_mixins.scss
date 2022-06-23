@@ -1,0 +1,48 @@
+@use "./variables" as *;
+
+@mixin sm {
+    @media (max-width: #{$screen-sm-max}) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: #{$screen-md-max}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: #{$screen-lg-max}) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (max-width: #{$screen-xl-max}) {
+        @content;
+    }
+}
+
+@mixin rwd($screen) {
+    @media (max-width: $screen) {
+        @content;
+    }
+}
+
+@mixin abs-position($top, $right, $bottom, $left) {
+    position: absolute;
+    display: block;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin text-decoration($family, $size, $weight, $height, $color: $text-color) {
+    font-family: $family, sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    color: $color;
+} ;

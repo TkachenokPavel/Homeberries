@@ -1,0 +1,135 @@
+@use "./config/variables" as *;
+@use "./config/mixins" as *;
+@use "./config/templates" as *;
+
+.card {
+	&__link {
+		position: relative;
+
+		width: 100%;
+		height: 427px;
+		margin-bottom: 15px;
+
+		@include lg {
+			height: 400px;
+		}
+
+		@include md {
+			height: 350px;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: 427px;
+
+		object-fit: cover;
+
+		@include lg {
+			height: 400px;
+		}
+
+		@include md {
+			height: 350px;
+		}
+	}
+
+	&__image-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		cursor: pointer;
+		text-align: center;
+		@include text-decoration("Roboto", 28px, 400, 427px);
+		opacity: 0;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.5);
+			opacity: 1;
+		}
+	}
+
+	&__discount {
+		position: absolute;
+		top: 76%;
+		left: 5%;
+		padding: 0.1rem;
+		border-radius: 5px;
+		background-color: rgba(255, 215, 4, 0.8);
+
+		@include text-decoration("Roboto", 24px, 700, 21px);
+
+		@include lg {
+			top: 73%;
+		}
+
+		@include md {
+			top: 70%;
+		}
+	}
+
+	&__price {
+		&-new {
+			align-self: start;
+			margin-left: 20px;
+
+			@include text-decoration("Roboto", 24px, 400, 25px, $second-color);
+		}
+
+		&-old {
+			align-self: start;
+			margin-left: 20px;
+			text-decoration: line-through;
+
+			@include text-decoration("Roboto", 16px, 400, 25px);
+		}
+	}
+
+	&__name {
+		align-self: start;
+
+		margin: 0 0 10px 15px;
+
+		@include text-decoration("Montserrat", 21px, 400, 25px);
+
+		@include md {
+			font-size: 18px;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		top: 70%;
+		right: 5%;
+		z-index: 3;
+
+		width: 50px;
+		height: 50px;
+
+		border: none;
+		border-radius: 50%;
+		background-image: url(../assets/icons/cart.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: $light-grey;
+
+		opacity: 0.5;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 1;
+			background-color: $second-color;
+		}
+
+		@include lg {
+			top: 68%;
+		}
+
+		@include md {
+			top: 65%;
+		}
+	}
+}
