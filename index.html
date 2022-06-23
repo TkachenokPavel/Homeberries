@@ -1,1 +1,84 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Homeberries - ваш лучший фейковый магазин!</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles.d5b0f341.css"><script src="/scripts.effa788e.js" type="module" defer></script></head><body> <div class="wrapper"> <header class="header"> <div class="container header__container"> <img src="/homeberries.d82f22d7.svg" class="header__logo" alt="logo"> <input id="input-search" type="text" class="header__search" placeholder="Я ищу..."> <img id="header-cart" src="/cart.9c1bcf97.svg" class="header__cart" alt="cart icon"> </div> </header> <main class="main"> <section class="slider"> <div class="container slider__container"> <ul class="slider__list"> <li class="slider__item slider__item--active"> <img src="/cleaning.152c2b42.jpeg" class="slider__image" alt="promotion cleaning"> </li> <li class="slider__item"> <img src="/boilers.c51ea2f7.jpeg" class="slider__image" alt="promotion boilers"> </li> <li class="slider__item"> <img src="/books.62f2a944.jpeg" class="slider__image" alt="promotion books"> </li> <li class="slider__item"> <img src="/dress.58d5363a.jpeg" class="slider__image" alt="promotion dress"> </li> <li class="slider__item"> <img src="/electro.bd361d40.jpeg" class="slider__image" alt="promotion electro"> </li> <li class="slider__item"> <img src="/kid_gifts.ee9d1dfa.jpeg" class="slider__image" alt="promotion gifts for kids"> </li> </ul> <button type="button" class="slider__button-previous" id="btn-prev"></button> <button type="button" class="slider__button-next" id="btn-next"></button> <ul class="slider__dots"> <li class="slider__dot slider__dot--active"></li> <li class="slider__dot"></li> <li class="slider__dot"></li> <li class="slider__dot"></li> <li class="slider__dot"></li> <li class="slider__dot"></li> </ul> </div> </section> <section class="product"> <div class="container product__container"> <h2 class="product__title">Возможно, Вам понравится...</h2> <ul class="product__list"> </ul> </div> </section> </main> </div> <div id="product-modal" class="modal-product"> <div class="modal-product__content"> <button type="button" class="modal-product__btn-close"> <img src="/close.5808afdf.svg" class="modal-product__btn-close-icon" alt="close button"> </button> <img src="" class="modal-product__image" alt="product photo"> </div> </div> <div id="cart-modal" class="modal-cart"> <div class="modal-cart__content"> <h2 class="modal-cart__title">Корзина</h2> <ul id="cart-list" class="modal-cart__list"> </ul> <div class="modal-cart__order"> <h2 class="order__title">Заказ</h2> <p class="order__total"> <span class="total__text">Общая стоимость:</span> <span class="total__value" id="value-total"></span> </p> <p class="order__discount"> <span class="discount__text">Скидка:</span> <span class="discount__value" id="value-discount"></span> </p> <p class="order__sum"> <span class="sum__text">Итог:</span> <span class="sum__value" id="value-sum"></span> </p> <button id="btn-submit-order" type="button" class="order__button">Оформить заказ</button> </div> <button id="btn-close-modal" type="button" class="modal-cart__btn-close"> <img src="/close.5808afdf.svg" class="modal-cart__btn-close-icon" alt="close button"> </button> </div> </div> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeberries - ваш лучший фейковый магазин!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.d5b0f341.css">
+    <script src="./scripts.effa788e.js" type="module" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container header__container"> <img src="/homeberries.d82f22d7.svg" class="header__logo"
+                    alt="logo"> <input id="input-search" type="text" class="header__search" placeholder="Я ищу..."> <img
+                    id="header-cart" src="/cart.9c1bcf97.svg" class="header__cart" alt="cart icon"> </div>
+        </header>
+        <main class="main">
+            <section class="slider">
+                <div class="container slider__container">
+                    <ul class="slider__list">
+                        <li class="slider__item slider__item--active"> <img src="./cleaning.152c2b42.jpeg"
+                                class="slider__image" alt="promotion cleaning"> </li>
+                        <li class="slider__item"> <img src="./boilers.c51ea2f7.jpeg" class="slider__image"
+                                alt="promotion boilers"> </li>
+                        <li class="slider__item"> <img src="./books.62f2a944.jpeg" class="slider__image"
+                                alt="promotion books"> </li>
+                        <li class="slider__item"> <img src="./dress.58d5363a.jpeg" class="slider__image"
+                                alt="promotion dress"> </li>
+                        <li class="slider__item"> <img src="./electro.bd361d40.jpeg" class="slider__image"
+                                alt="promotion electro"> </li>
+                        <li class="slider__item"> <img src="./kid_gifts.ee9d1dfa.jpeg" class="slider__image"
+                                alt="promotion gifts for kids"> </li>
+                    </ul> <button type="button" class="slider__button-previous" id="btn-prev"></button> <button
+                        type="button" class="slider__button-next" id="btn-next"></button>
+                    <ul class="slider__dots">
+                        <li class="slider__dot slider__dot--active"></li>
+                        <li class="slider__dot"></li>
+                        <li class="slider__dot"></li>
+                        <li class="slider__dot"></li>
+                        <li class="slider__dot"></li>
+                        <li class="slider__dot"></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="product">
+                <div class="container product__container">
+                    <h2 class="product__title">Возможно, Вам понравится...</h2>
+                    <ul class="product__list"> </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="product-modal" class="modal-product">
+        <div class="modal-product__content"> <button type="button" class="modal-product__btn-close"> <img
+                    src="./close.5808afdf.svg" class="modal-product__btn-close-icon" alt="close button"> </button> <img
+                src="" class="modal-product__image" alt="product photo"> </div>
+    </div>
+    <div id="cart-modal" class="modal-cart">
+        <div class="modal-cart__content">
+            <h2 class="modal-cart__title">Корзина</h2>
+            <ul id="cart-list" class="modal-cart__list"> </ul>
+            <div class="modal-cart__order">
+                <h2 class="order__title">Заказ</h2>
+                <p class="order__total"> <span class="total__text">Общая стоимость:</span> <span class="total__value"
+                        id="value-total"></span> </p>
+                <p class="order__discount"> <span class="discount__text">Скидка:</span> <span class="discount__value"
+                        id="value-discount"></span> </p>
+                <p class="order__sum"> <span class="sum__text">Итог:</span> <span class="sum__value"
+                        id="value-sum"></span> </p> <button id="btn-submit-order" type="button"
+                    class="order__button">Оформить заказ</button>
+            </div> <button id="btn-close-modal" type="button" class="modal-cart__btn-close"> <img
+                    src="./close.5808afdf.svg" class="modal-cart__btn-close-icon" alt="close button"> </button>
+        </div>
+    </div>
+</body>
+
+</html>
