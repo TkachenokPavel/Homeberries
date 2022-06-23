@@ -3,6 +3,8 @@ This project contains the basic logic of the main page and the shopping cart of 
 
 ## Preview
 
+* [Watch website](https://tkachenokpavel.github.io/Homeberries/)
+
 ![Image](https://i.postimg.cc/sfqmqv2H/2022-06-22-221036742.png)
 
 ## Built With
