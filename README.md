@@ -14,17 +14,17 @@ This project contains the basic logic of the main page and the shopping cart of 
 
 ## Installation
 
-install Node.js [from here](https://nodejs.org)
+Install Node.js [from here](https://nodejs.org)
 Clone repository from [github](https://github.com/TkachenokPavel/Homeberries.git) in terminal
 
 ```bash
 git clone https://github.com/TkachenokPavel/Homeberries.git
 ```
 
-install parcel
+Install all dependencies:
 
 ```
-npm install -g parcel-bundler
+npm install
 ```
 
 ## Run project
